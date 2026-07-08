@@ -27,6 +27,17 @@ print_txt " _________________________________________" "$GREEN"
 
 echo
 print_txt "Verifiying existence of dependencies..." "$YELLOW"
+
+# The entire theme is built around Hyprland, so check for it before anything else.
+if command -v "$WINDOW_MANAGER" >/dev/null 2>&1 ; then
+    print_txt "✓ $WINDOW_MANAGER - Found." "$GREEN"
+else
+    print_txt "✗ $WINDOW_MANAGER - Not Found!" "$RED"
+    print_txt "Linux Antiquity is a Hyprland theme and won't work without it." "$RED"
+    print_txt "Install Hyprland first (https://wiki.hypr.land/Getting-Started/Installation/), then run this script again." "$RED"
+    exit 1
+fi
+
 missing_deps=()
 
 # Best way to do this? Unsure if this has high compat
