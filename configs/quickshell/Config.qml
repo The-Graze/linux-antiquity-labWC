@@ -195,13 +195,13 @@ Singleton {
         None
     }
     // TODO: Finish adding all the other widgets
-    readonly property var widgetTypes: ["Weather"]
+    readonly property var widgetTypes: ["Weather", "Clock"]
     readonly property var widgetPaths: {
-        "Weather": "WeatherWidget.qml"
+        "Weather": "WeatherWidget.qml",
+        "Clock": "ClockWidget.qml"
         //"CPUTemp": "CPUTemperatureWidget.qml",
         //"GPUTemp": "GPUTemperatureWidget.qml",
         //"RAM": "RAMWidget.qml",
-        //"Clock": "ClockWidget.qml",
         //"TheDate": "DateWidget.qml"
     }
 
