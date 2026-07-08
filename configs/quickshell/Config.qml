@@ -210,12 +210,24 @@ Singleton {
     function fetchWeatherData() {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
-            if (xmlhttp.readyState === XMLHttpRequest.DONE && xmlhttp.status == 200) {
-                weatherData = JSON.parse(xmlhttp.responseText);
+            if (xmlhttp.readyState !== XMLHttpRequest.DONE) {
+                return;
+            }
+            if (xmlhttp.status == 200) {
+                try {
+                    weatherData = JSON.parse(xmlhttp.responseText);
+                } catch (e) {
+                    console.warn("Weather: got an unparsable response from openweathermap: " + e);
+                }
+            } else {
+                // Most likely a wrong API key/city name, or no network. Keep the old
+                // data around if we had any, a stale reading beats an empty widget.
+                console.warn("Weather: request failed with status " + xmlhttp.status + " - check your API key and city name in settings.");
             }
         };
 
-        const url = `https://api.openweathermap.org/data/2.5/weather` + `?q=${settings.openWeatherMap.city}` + `&appid=${settings.openWeatherMap.apiKey}` + `&units=metric` + `&lang=en`;
+        // encodeURIComponent so city names with spaces or special characters work (e.g. "São Paulo").
+        const url = `https://api.openweathermap.org/data/2.5/weather` + `?q=${encodeURIComponent(settings.openWeatherMap.city)}` + `&appid=${settings.openWeatherMap.apiKey}` + `&units=metric` + `&lang=en`;
 
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
