@@ -51,8 +51,10 @@ Rectangle {
         return Config.colors.elementAir;
     }
     function getTemp() {
-        var temp = parseInt(Config.weatherData?.main?.temp) ?? null;
-        if (temp == null) {
+        // parseInt gives NaN (not null) when there's no data yet, so check for that
+        // instead — otherwise we'd render a lovely "NaN°C" while waiting for the API.
+        var temp = parseFloat(Config.weatherData?.main?.temp);
+        if (isNaN(temp)) {
             return "...";
         }
 

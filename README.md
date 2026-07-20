@@ -67,6 +67,7 @@ ____
 * `Kitty` *Terminal configs use by default*
 * `Nemo` *File explorer configs use by default*
 * `Mako`
+* `Hyprshot` *For the screenshot keybind*
 * `jq`
 * `socat`
 
