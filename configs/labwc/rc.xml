@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<labwc_config>
+
+  <core>
+    <gap>4</gap>
+  </core>
+
+  <theme>
+    <cornerRadius>9</cornerRadius>
+  </theme>
+
+  <focus>
+    <followMouse>yes</followMouse>
+  </focus>
+
+  <mouse>
+    <doubleClickTime>500</doubleClickTime>
+    <scrollFactor>1.0</scrollFactor>
+  </mouse>
+
+  <keyboard>
+
+    <keybind key="W-Return">
+      <action name="Execute">
+        <command>kitty</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-f">
+      <action name="Execute">
+        <command>firefox</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-e">
+      <action name="Execute">
+        <command>nemo</command>
+      </action>
+    </keybind>
+
+    <keybind key="W-space">
+      <action name="Execute">
+        <command>walker</command>
+      </action>
+    </keybind>
+
+    <keybind key="A-Tab">
+      <action name="NextWindow"/>
+    </keybind>
+
+    <keybind key="A-S-Tab">
+      <action name="PreviousWindow"/>
+    </keybind>
+
+    <keybind key="W-q">
+      <action name="Close"/>
+    </keybind>
+
+    <keybind key="F11">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+
+    <keybind key="W-S-space">
+      <action name="ToggleMaximize"/>
+    </keybind>
+
+    <keybind key="W-S-s">
+      <action name="Execute">
+        <command>grimblast copy area</command>
+      </action>
+    </keybind>
+
+
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+        <command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+        <command>wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioMicMute">
+      <action name="Execute">
+        <command>wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioPlay">
+      <action name="Execute">
+        <command>playerctl play-pause</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioPause">
+      <action name="Execute">
+        <command>playerctl pause</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioStop">
+      <action name="Execute">
+        <command>playerctl stop</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioNext">
+      <action name="Execute">
+        <command>playerctl next</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86AudioPrev">
+      <action name="Execute">
+        <command>playerctl previous</command>
+      </action>
+    </keybind>
+
+
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+        <command>brightnessctl s 10%+</command>
+      </action>
+    </keybind>
+
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+        <command>brightnessctl s 10%-</command>
+      </action>
+    </keybind>
+
+  </keyboard>
+
+  <libinput>
+    <device category="default">
+      <pointerSpeed>0</pointerSpeed>
+      <accelProfile>flat</accelProfile>
+    </device>
+  </libinput>
+
+</labwc_config>

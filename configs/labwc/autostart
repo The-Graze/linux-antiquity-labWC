@@ -1,0 +1,17 @@
+#!/bin/sh
+
+kanshi &
+
+quickshell &
+
+swaybg -i ~/.config/hypr/wallpapers_bundled/georges_riom_collage.png &
+
+fnott &
+
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+hyprctl setcursor Hackneyed-24px 24 &
+
+systemctl --user start hyprpolkitagent &
+
+dex -a &
